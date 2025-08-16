@@ -1,0 +1,2679 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nguyễn Minh Tuấn - Giáo viên và Chuyên gia CNTT với kinh nghiệm 8+ năm trong giáo dục và phát triển công nghệ">
+    <meta name="keywords" content="giáo viên, CNTT, IT specialist, educator, web developer">
+    <meta name="author" content="Nguyễn Minh Tuấn">
+    <title>Nguyễn Lê Ngọc Duy - Giáo viên & IT Specialist</title>
+    
+    <!-- Font imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset và Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-navy: #1F3A5F;
+            --primary-white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --accent-teal: #4CA1AF;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+            --gradient: linear-gradient(135deg, #1F3A5F 0%, #4CA1AF 100%);
+            --shadow: 0 10px 30px rgba(31, 58, 95, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--primary-white);
+            overflow-x: hidden;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(31, 58, 95, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-teal);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-teal);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-navy);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--primary-white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--primary-white);
+            color: var(--primary-navy);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-white);
+        }
+
+        /* CV Download Button Styles */
+        .cv-download-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #4ca1af 0%, #2c3e50 100%);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(76, 161, 175, 0.3);
+        }
+
+        .cv-download-btn:hover {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(76, 161, 175, 0.4);
+        }
+
+        .cv-download-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(76, 161, 175, 0.3);
+        }
+
+        .cv-download-btn .btn-text,
+        .cv-download-btn .btn-loading {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cv-download-btn.loading .btn-text {
+            display: none;
+        }
+
+        .cv-download-btn.loading .btn-loading {
+            display: inline-flex !important;
+        }
+
+        .cv-download-btn .fa-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cv-download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cv-download-btn:hover::before {
+            left: 100%;
+        }
+        
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .avatar {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: var(--primary-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .avatar::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(76, 161, 175, 0.3), transparent);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .avatar-content {
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: var(--primary-navy);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+        .avatar-content img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Section Base */
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-teal);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(31, 58, 95, 0.15);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight {
+            color: var(--accent-teal);
+            font-weight: 600;
+        }
+        
+        /* Animated Info Box Styles */
+        .animated-info-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+            border: 4px solid #4ca1af;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 15px 40px rgba(31, 58, 95, 0.3), 0 0 0 1px rgba(76, 161, 175, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            animation: slideInUp 0.8s ease-out;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 10;
+        }
+        
+        .animated-info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(76, 161, 175, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .animated-info-box:hover::before {
+            left: 100%;
+        }
+        
+        .animated-info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(31, 58, 95, 0.15);
+            border-color: var(--accent-teal);
+        }
+        
+        .info-box-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-bottom: 2px solid rgba(76, 161, 175, 0.2);
+            background: linear-gradient(135deg, #f0f8ff 0%, #e1f5fe 100%);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(76, 161, 175, 0.1);
+        }
+        
+        .info-box-header i {
+            font-size: 1.5rem;
+            color: #1f3a5f;
+            animation: bounce 2s infinite;
+        }
+        
+        .info-box-header h4 {
+            color: #1f3a5f;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 0;
+        }
+        
+        .info-box-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            border-radius: 10px;
+            transition: var(--transition);
+            animation: fadeInScale 0.6s ease-out;
+            border: 2px solid #4ca1af;
+            box-shadow: 0 4px 15px rgba(76, 161, 175, 0.15);
+        }
+        
+        .info-item:nth-child(1) { animation-delay: 0.1s; }
+        .info-item:nth-child(2) { animation-delay: 0.2s; }
+        .info-item:nth-child(3) { animation-delay: 0.3s; }
+        .info-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .info-item:hover {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(76, 161, 175, 0.25);
+        }
+        
+        .info-item i {
+            color: #4ca1af;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .info-item span {
+            color: #333333;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .info-box-footer {
+            padding-top: 1rem;
+            border-top: 2px solid rgba(76, 161, 175, 0.1);
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            padding: 0.75rem 1rem;
+            border-radius: 25px;
+            border: 2px solid #4caf50;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-indicator span:last-child {
+            color: #333333;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations for Info Box */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+            }
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-category {
+            background: var(--primary-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(31, 58, 95, 0.15);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .skill-category i {
+            font-size: 1.25rem;
+            color: var(--accent-teal);
+        }
+        
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .skill-level {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(76, 161, 175, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-teal);
+            border-radius: 4px;
+            transition: width 1s ease-out;
+            width: 0;
+        }
+        
+        /* Experience Section */
+        .experience {
+            background: var(--light-gray);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--accent-teal);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+        
+        .timeline-content {
+            background: var(--primary-white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(31, 58, 95, 0.15);
+        }
+        
+        .timeline-date {
+            background: var(--accent-teal);
+            color: var(--primary-white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-company {
+            color: var(--accent-teal);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-teal);
+            border: 4px solid var(--primary-white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--accent-teal);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .project-card {
+            background: var(--primary-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(31, 58, 95, 0.2);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image i {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .project-content {
+            padding: 2rem;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+        
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background: rgba(76, 161, 175, 0.1);
+            color: var(--accent-teal);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border-radius: 25px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--light-gray);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: var(--primary-white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(31, 58, 95, 0.15);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--accent-teal);
+            font-weight: bold;
+            opacity: 0.3;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-white);
+            font-weight: 600;
+        }
+        
+        .author-info h4 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            background: var(--primary-white);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-white);
+            font-size: 1.25rem;
+        }
+        
+        .contact-details h4 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-details span {
+            color: var(--text-light);
+        }
+        
+        .contact-form {
+            background: var(--primary-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(31, 58, 95, 0.1);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--light-gray);
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            background: var(--primary-white);
+            box-shadow: 0 0 0 4px rgba(76, 161, 175, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-navy);
+            color: var(--primary-white);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--accent-teal);
+            transform: translateY(-3px);
+        }
+        
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-teal);
+            color: var(--primary-white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(76, 161, 175, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--primary-white);
+                flex-direction: column;
+                justify-content: start;
+                padding-top: 2rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .avatar {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .avatar-content {
+                font-size: 6rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+            }
+            
+            .timeline-dot {
+                left: 22px !important;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 4rem 1rem;
+            }
+            
+            .hero-content {
+                padding: 1rem;
+            }
+            
+            .nav {
+                padding: 1rem;
+            }
+            
+            .avatar {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .avatar-content {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-box-content {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .animated-info-box {
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            .info-box-header h4 {
+                font-size: 1.1rem;
+            }
+            
+            .info-item {
+                padding: 0.5rem;
+            }
+            
+            .info-item span {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#home" class="logo">Ngọc Duy</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Trang chủ</a></li>
+                <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+                <li><a href="#skills" class="nav-link">Kỹ năng</a></li>
+                <li><a href="#experience" class="nav-link">Kinh nghiệm</a></li>
+                <li><a href="#portfolio" class="nav-link">Dự án</a></li>
+                <li><a href="#testimonials" class="nav-link">Đánh giá</a></li>
+                <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Nguyễn Lê Ngọc Duy</h1>
+                <p class="hero-tagline">Frontend development</p>
+                <p class="hero-description">
+                    Kết hợp đam mê giảng dạy với chuyên môn công nghệ, tôi mang đến những giải pháp 
+                    giáo dục hiện đại và phát triển các ứng dụng web chuyên nghiệp.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Liên hệ ngay
+                    </a>
+                    <button type="button" class="btn btn-secondary cv-download-btn" onclick="downloadCV()">
+                        <i class="fas fa-download"></i>
+                        <span class="btn-text">Tải CV</span>
+                        <span class="btn-loading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Đang tải...
+                        </span>
+                    </button>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="avatar">
+                    <div class="avatar-content">
+                        <img src="../AVATAR.jpg" alt="avarta">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Giới thiệu bản thân</h2>
+                <p class="section-subtitle">
+                    Khám phá hành trình kết hợp giáo dục và công nghệ trong sự nghiệp của tôi
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-stats">
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Năm kinh nghiệm</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Học sinh đã dạy</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Dự án hoàn thành</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Chứng chỉ</div>
+                    </div>
+                </div>
+                <div class="about-text fade-in">
+                    <p>
+                        Xin chào! Tôi là <span class="highlight">Nguyễn Lê Ngọc Duy</span>, một người đam mê 
+                        kết hợp giáo dục và công nghệ. Với hơn 8 năm kinh nghiệm trong lĩnh vực sư phạm 
+                        và 5 năm phát triển phần mềm, tôi tin rằng công nghệ có thể biến đổi cách chúng ta học tập.
+                    </p>
+                    <p>
+                        Tôi chuyên về <span class="highlight">phát triển web</span>, <span class="highlight">thiết kế UX/UI</span> 
+                        và <span class="highlight">giảng dạy công nghệ thông tin</span>. Triết lý làm việc của tôi là 
+                        "Học tập không bao giờ dừng lại" - luôn cập nhật kiến thức mới và chia sẻ với cộng đồng.
+                    </p>
+                    <p>
+                        Khi không làm việc, tôi thích khám phá những công nghệ mới, đọc sách về giáo dục học 
+                        và tham gia các hoạt động cộng đồng tech.
+                    </p>
+                    
+                    <!-- Animated Info Box -->
+                    <div class="animated-info-box">
+                        <div class="info-box-header">
+                            <i class="fas fa-rocket"></i>
+                            <h4>Điểm nổi bật</h4>
+                        </div>
+                        <div class="info-box-content">
+                            <div class="info-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Chuyên ngành: Công nghệ thông tin</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Địa điểm: TP. Hồ Chí Minh</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Kinh nghiệm: 8+ năm</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-code"></i>
+                                <span>Ngôn ngữ: JavaScript, React, Node.js</span>
+                            </div>
+                        </div>
+                        <div class="info-box-footer">
+                            <div class="status-indicator">
+                                <span class="status-dot"></span>
+                                <span>Sẵn sàng cho dự án mới</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kỹ năng chuyên môn</h2>
+                <p class="section-subtitle">
+                    Tổng hợp kỹ năng công nghệ và giảng dạy được tích lũy qua nhiều năm kinh nghiệm
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code"></i>Lập trình & Phát triển</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript/TypeScript</span>
+                            <span class="skill-level">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">React/Next.js</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Node.js/Express</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python/Django</span>
+                            <span class="skill-level">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-chalkboard-teacher"></i>Giảng dạy & Sư phạm</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Thiết kế bài giảng</span>
+                            <span class="skill-level">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Quản lý lớp học</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">E-learning Platform</span>
+                            <span class="skill-level">88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Đánh giá học sinh</span>
+                            <span class="skill-level">92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="92"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tools"></i>Công cụ & Kỹ năng khác</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git/GitHub</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Docker/DevOps</span>
+                            <span class="skill-level">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Database (SQL/NoSQL)</span>
+                            <span class="skill-level">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kinh nghiệm làm việc</h2>
+                <p class="section-subtitle">
+                    Hành trình phát triển sự nghiệp kết hợp giữa giáo dục và công nghệ
+                </p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - Hiện tại</div>
+                        <h3 class="timeline-title">Senior Full-stack Developer & Giảng viên</h3>
+                        <p class="timeline-company">Tech Education Institute</p>
+                        <p class="timeline-description">
+                            Phát triển hệ thống e-learning cho hơn 2000 học sinh. Giảng dạy các khóa học 
+                            lập trình web, mobile app development và quản lý 5+ dự án công nghệ giáo dục.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 2022</div>
+                        <h3 class="timeline-title">Full-stack Developer</h3>
+                        <p class="timeline-company">Digital Solutions Co.</p>
+                        <p class="timeline-description">
+                            Phát triển các ứng dụng web và mobile cho khách hàng doanh nghiệp. Chuyên về 
+                            React, Node.js và cloud deployment. Tham gia 10+ dự án thành công.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018 - 2020</div>
+                        <h3 class="timeline-title">Giáo viên Tin học</h3>
+                        <p class="timeline-company">Trường THPT Nguyễn Du</p>
+                        <p class="timeline-description">
+                            Giảng dạy môn Tin học cho học sinh THPT. Xây dựng chương trình đào tạo lập trình 
+                            cơ bản và hướng dẫn học sinh tham gia các cuộc thi tin học.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2016 - 2018</div>
+                        <h3 class="timeline-title">Junior Developer & Trợ giảng</h3>
+                        <p class="timeline-company">Freelance & Part-time</p>
+                        <p class="timeline-description">
+                            Bắt đầu sự nghiệp với các dự án freelance về web development. Đồng thời làm 
+                            trợ giảng cho các khóa học lập trình tại trung tâm tin học.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Dự án tiêu biểu</h2>
+                <p class="section-subtitle">
+                    Một số dự án đáng chú ý trong lĩnh vực giáo dục và phát triển phần mềm
+                </p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">EduManage Pro</h3>
+                        <p class="project-description">
+                            Hệ thống quản lý học tập trực tuyến với tính năng video call, bài tập tự động, 
+                            và theo dõi tiến độ học sinh realtime.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Socket.io</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary btn-small">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                            <a href="#" class="btn btn-secondary btn-small">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">SmartClass Mobile</h3>
+                        <p class="project-description">
+                            Ứng dụng mobile cho phép học sinh và phụ huynh theo dõi điểm số, thời khóa biểu 
+                            và giao tiếp với giáo viên.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Push Notifications</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary btn-small">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                            <a href="#" class="btn btn-secondary btn-small">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Analytics Dashboard</h3>
+                        <p class="project-description">
+                            Dashboard phân tích dữ liệu học tập với biểu đồ trực quan, báo cáo tự động 
+                            và AI dự đoán kết quả học tập.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">D3.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary btn-small">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                            <a href="#" class="btn btn-secondary btn-small">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Online Code Editor</h3>
+                        <p class="project-description">
+                            Trình soạn thảo code trực tuyến hỗ trợ nhiều ngôn ngữ lập trình, có tính năng 
+                            chia sẻ và chấm bài tự động.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">WebSocket</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary btn-small">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                            <a href="#" class="btn btn-secondary btn-small">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Phản hồi & Đánh giá</h2>
+                <p class="section-subtitle">
+                    Những lời nhận xét từ học sinh, đồng nghiệp và đối tác làm việc
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">
+                        "Thầy Tuấn không chỉ dạy code mà còn truyền cảm hứng học tập. Nhờ thầy, em đã 
+                        có được nền tảng vững chắc để theo đuổi ngành CNTT."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MH</div>
+                        <div class="author-info">
+                            <h4>Nguyễn Minh Hạnh</h4>
+                            <span>Sinh viên CNTT - FPT University</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">
+                        "Anh Tuấn là developer xuất sắc với tư duy sư phạm độc đáo. Dự án EduManage 
+                        do anh phát triển đã giúp trường chúng tôi cải thiện chất lượng giảng dạy đáng kể."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LP</div>
+                        <div class="author-info">
+                            <h4>Trần Lê Phước</h4>
+                            <span>Hiệu trưởng - THPT Lê Quý Đôn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">
+                        "Làm việc với Tuấn trong dự án SmartClass thật tuyệt vời. Anh ấy có khả năng 
+                        kết hợp kiến thức kỹ thuật với hiểu biết sâu sắc về giáo dục."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">QA</div>
+                        <div class="author-info">
+                            <h4>Lê Quang Anh</h4>
+                            <span>Tech Lead - Digital Solutions Co.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Liên hệ</h2>
+                <p class="section-subtitle">
+                    Hãy kết nối với tôi để thảo luận về cơ hội hợp tác hoặc các dự án thú vị
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <span>minhtuan.dev@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Điện thoại</h4>
+                            <span>+84 123 456 789</span>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Địa chỉ</h4>
+                            <span>TP. Hồ Chí Minh, Việt Nam</span>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <span>linkedin.com/in/minhtuan-dev</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <label class="form-label">Họ và tên *</label>
+                            <input type="text" class="form-input" required placeholder="Nhập họ tên của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-input" required placeholder="Nhập email của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Chủ đề</label>
+                            <input type="text" class="form-input" placeholder="Chủ đề tin nhắn">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tin nhắn *</label>
+                            <textarea class="form-textarea" required placeholder="Nội dung tin nhắn của bạn..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Gửi tin nhắn
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="footer-text">
+                © 2025 Nguyễn Minh Tuấn. All rights reserved. Thiết kế với ❤️ và công nghệ hiện đại.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // JavaScript functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 70;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Close mobile menu
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    
+                    // Update active link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 2px 20px rgba(31, 58, 95, 0.1)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = 'none';
+                }
+            });
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Animate progress bars when skills section is visible
+                        if (entry.target.closest('.skills')) {
+                            const progressBars = entry.target.querySelectorAll('.progress-fill');
+                            progressBars.forEach(bar => {
+                                const width = bar.getAttribute('data-width');
+                                setTimeout(() => {
+                                    bar.style.width = width + '%';
+                                }, 300);
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with animation classes
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            animatedElements.forEach(el => observer.observe(el));
+
+            // Back to top button
+            const backToTopBtn = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            // Update active navigation link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const scrollPos = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Parallax effect for hero section
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    const rate = scrolled * -0.5;
+                    hero.style.transform = `translateY(${rate}px)`;
+                }
+            });
+
+            // Typing effect for hero tagline
+            const tagline = document.querySelector('.hero-tagline');
+            const originalText = tagline.textContent;
+            tagline.textContent = '';
+            
+            let i = 0;
+            const typeWriter = function() {
+                if (i < originalText.length) {
+                    tagline.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            setTimeout(typeWriter, 1000);
+
+            // Smooth reveal animation for stats
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const animateStats = function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalNumber = parseInt(target.textContent);
+                        let currentNumber = 0;
+                        const increment = finalNumber / 50;
+                        
+                        const updateNumber = function() {
+                            currentNumber += increment;
+                            if (currentNumber < finalNumber) {
+                                target.textContent = Math.floor(currentNumber) + (target.textContent.includes('+') ? '+' : '');
+                                requestAnimationFrame(updateNumber);
+                            } else {
+                                target.textContent = finalNumber + (target.textContent.includes('+') ? '+' : '');
+                            }
+                        };
+                        
+                        updateNumber();
+                    }
+                });
+            };
+            
+            const statsObserver = new IntersectionObserver(animateStats, { threshold: 0.5 });
+            statNumbers.forEach(stat => statsObserver.observe(stat));
+
+            // Add hover effects to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(-10px) scale(1)';
+                });
+            });
+
+            // Testimonial cards random animation delay
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            testimonialCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+
+            // Add ripple effect to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Dynamic greeting based on time
+            const updateGreeting = function() {
+                const hour = new Date().getHours();
+                const heroDescription = document.querySelector('.hero-description');
+                let greeting = '';
+                
+                if (hour < 12) {
+                    greeting = 'Chào buổi sáng! ';
+                } else if (hour < 18) {
+                    greeting = 'Chào buổi chiều! ';
+                } else {
+                    greeting = 'Chào buổi tối! ';
+                }
+                
+                heroDescription.textContent = greeting + heroDescription.textContent.replace(/^(Chào buổi \w+! )?/, '');
+            };
+            
+            updateGreeting();
+        });
+
+        // Utility functions
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function downloadCV() {
+            // Get the download button
+            const downloadBtn = document.querySelector('.cv-download-btn');
+            
+            // Add loading state
+            if (downloadBtn) {
+                downloadBtn.classList.add('loading');
+                downloadBtn.disabled = true;
+            }
+            
+            // Simulate a small delay for better UX
+            setTimeout(() => {
+                // Create a proper CV download
+                const link = document.createElement('a');
+                
+                // Create a comprehensive CV content (you can replace this with your actual CV file)
+                const cvContent = `
+CV - NGUYỄN LÊ NGỌC DUY
+=====================================
+
+THÔNG TIN CÁ NHÂN
+------------------
+Họ và tên: Nguyễn Lê Ngọc Duy
+Email: ngocduy@example.com
+Điện thoại: 0123 456 789
+Địa chỉ: TP. Hồ Chí Minh
+LinkedIn: linkedin.com/in/ngocduy
+Website: ngocduy.dev
+
+HỌC VẤN
+--------
+- Cử nhân Công nghệ thông tin (2015)
+- Chứng chỉ giảng dạy Công nghệ thông tin
+- Chứng chỉ phát triển web Full-stack
+- Chứng chỉ UX/UI Design
+
+KINH NGHIỆM LÀM VIỆC
+--------------------
+Giáo viên Công nghệ thông tin (2015 - nay)
+- Giảng dạy cho 500+ học sinh các môn Công nghệ thông tin
+- Phát triển chương trình giảng dạy hiện đại
+- Tích hợp công nghệ vào giáo dục
+- Đào tạo giáo viên về ứng dụng công nghệ trong giảng dạy
+
+Lập trình viên Full-stack (2020 - nay)
+- Phát triển 15+ dự án web chuyên nghiệp
+- Sử dụng JavaScript, React, Node.js, MongoDB
+- Thiết kế UX/UI cho các ứng dụng web
+- Làm việc với các framework hiện đại
+
+KỸ NĂNG CHUYÊN MÔN
+------------------
+Lập trình:
+- Frontend: JavaScript, React, Vue.js, HTML5, CSS3, SASS
+- Backend: Node.js, Express.js, MongoDB, MySQL
+- Tools: Git, Docker, Webpack, Babel
+- Cloud: AWS, Heroku, Vercel
+
+Thiết kế:
+- UX/UI Design: Figma, Adobe XD, Sketch
+- Prototyping: InVision, Marvel
+- Design Systems và Component Libraries
+
+Giảng dạy:
+- Phương pháp sư phạm hiện đại
+- E-learning và Blended Learning
+- Đánh giá và phản hồi hiệu quả
+
+Ngôn ngữ:
+- Tiếng Việt: Bản ngữ
+- Tiếng Anh: Thành thạo (TOEIC 850+)
+
+DỰ ÁN TIÊU BIỂU
+----------------
+1. Hệ thống quản lý học tập online (LMS)
+   - Công nghệ: React, Node.js, MongoDB
+   - Tính năng: Quản lý khóa học, bài tập, đánh giá
+
+2. Ứng dụng mobile giáo dục
+   - Công nghệ: React Native, Firebase
+   - Tính năng: Học tập tương tác, trò chơi giáo dục
+
+3. Website portfolio cá nhân
+   - Công nghệ: HTML5, CSS3, JavaScript
+   - Tính năng: Responsive design, animations
+
+4. Hệ thống đánh giá học sinh
+   - Công nghệ: Vue.js, Node.js, MySQL
+   - Tính năng: Báo cáo chi tiết, analytics
+
+CHỨNG CHỈ & THÀNH TỰU
+----------------------
+- Chứng chỉ giảng dạy Công nghệ thông tin (2016)
+- Chứng chỉ phát triển web Full-stack (2020)
+- Chứng chỉ UX/UI Design (2021)
+- Chứng chỉ quản lý dự án Agile (2022)
+- Giải thưởng Giáo viên xuất sắc (2019, 2021)
+- Speaker tại các hội thảo công nghệ giáo dục
+
+SỞ THÍCH & HOẠT ĐỘNG
+---------------------
+- Khám phá công nghệ mới và xu hướng phát triển
+- Đọc sách về giáo dục và công nghệ
+- Tham gia cộng đồng tech và chia sẻ kiến thức
+- Phát triển bản thân liên tục và học tập suốt đời
+- Tham gia các dự án open source
+
+LIÊN HỆ
+--------
+Email: ngocduy@example.com
+Phone: 0123 456 789
+LinkedIn: linkedin.com/in/ngocduy
+GitHub: github.com/ngocduy
+Website: ngocduy.dev
+
+=====================================
+                `;
+                
+                // Create blob with CV content
+                const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                
+                link.href = url;
+                link.download = 'CV_NguyenLeNgocDuy_2025.txt';
+                link.style.display = 'none';
+                
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Clean up the URL object
+                setTimeout(() => URL.revokeObjectURL(url), 100);
+                
+                // Remove loading state
+                if (downloadBtn) {
+                    downloadBtn.classList.remove('loading');
+                    downloadBtn.disabled = false;
+                }
+                
+                // Show success notification
+                showNotification('CV đã được tải xuống thành công! 📄', 'success');
+                
+                // Track download event
+                trackEvent('cv_download', {
+                    filename: 'CV_NguyenLeNgocDuy_2025.txt',
+                    timestamp: new Date().toISOString(),
+                    user_agent: navigator.userAgent
+                });
+                
+            }, 800); // Small delay for better UX
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Simulate form submission
+            showNotification('Đang gửi tin nhắn...', 'info');
+            
+            setTimeout(() => {
+                showNotification('Tin nhắn đã được gửi thành công! Tôi sẽ phản hồi sớm nhất có thể.', 'success');
+                event.target.reset();
+            }, 2000);
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#4CA1AF' : type === 'error' ? '#e74c3c' : '#3498db'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                z-index: 10000;
+                font-weight: 600;
+                transform: translateX(400px);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                max-width: 350px;
+                word-wrap: break-word;
+            `;
+            
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer; margin-left: auto;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+
+        // SEO and performance optimizations
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        // Initialize lazy loading
+        lazyLoadImages();
+
+        // Add CSS for ripple effect
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            .btn {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+            
+            /* Loading states */
+            .loading {
+                position: relative;
+                pointer-events: none;
+            }
+            
+            .loading::after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                margin: auto;
+                border: 2px solid transparent;
+                border-top-color: currentColor;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+            
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            /* Improved focus states for accessibility */
+            .btn:focus,
+            .form-input:focus,
+            .form-textarea:focus,
+            .nav-link:focus {
+                outline: 2px solid var(--accent-teal);
+                outline-offset: 2px;
+            }
+            
+            /* High contrast mode support */
+            @media (prefers-contrast: high) {
+                :root {
+                    --primary-navy: #000000;
+                    --accent-teal: #0066CC;
+                    --text-dark: #000000;
+                    --text-light: #333333;
+                }
+            }
+            
+            /* Reduced motion support */
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                    scroll-behavior: auto !important;
+                }
+            }
+            
+            /* Print styles */
+            @media print {
+                .header,
+                .back-to-top,
+                .hero-buttons,
+                .contact-form {
+                    display: none !important;
+                }
+                
+                .hero {
+                    min-height: auto;
+                    background: white !important;
+                    color: black !important;
+                }
+                
+                .section {
+                    page-break-inside: avoid;
+                    padding: 2rem 0;
+                }
+                
+                .project-card,
+                .testimonial-card,
+                .skill-category {
+                    break-inside: avoid;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Progressive Web App service worker registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Analytics tracking (placeholder)
+        function trackEvent(eventName, properties = {}) {
+            // Placeholder for analytics tracking
+            console.log('Event tracked:', eventName, properties);
+        }
+
+        // Track important user interactions
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn')) {
+                trackEvent('button_click', {
+                    button_text: e.target.textContent.trim(),
+                    button_type: e.target.classList.contains('btn-primary') ? 'primary' : 'secondary'
+                });
+            }
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+                trackEvent('page_load_time', { load_time: loadTime });
+            }, 0);
+        });
+
+        // Error tracking
+        window.addEventListener('error', function(e) {
+            trackEvent('javascript_error', {
+                message: e.message,
+                filename: e.filename,
+                lineno: e.lineno
+            });
+        });
+
+        // Accessibility improvements
+        function improveAccessibility() {
+            // Add skip link
+            const skipLink = document.createElement('a');
+            skipLink.href = '#main-content';
+            skipLink.textContent = 'Skip to main content';
+            skipLink.style.cssText = `
+                position: absolute;
+                top: -40px;
+                left: 6px;
+                background: var(--primary-navy);
+                color: white;
+                padding: 8px;
+                text-decoration: none;
+                border-radius: 4px;
+                z-index: 10001;
+                transition: top 0.3s;
+            `;
+            skipLink.addEventListener('focus', () => skipLink.style.top = '6px');
+            skipLink.addEventListener('blur', () => skipLink.style.top = '-40px');
+            document.body.insertBefore(skipLink, document.body.firstChild);
+
+            // Add main landmark
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+                aboutSection.setAttribute('role', 'main');
+                aboutSection.id = 'main-content';
+            }
+
+            // Improve form accessibility
+            const formInputs = document.querySelectorAll('.form-input, .form-textarea');
+            formInputs.forEach((input, index) => {
+                const label = input.previousElementSibling;
+                if (label && label.classList.contains('form-label')) {
+                    const id = `form-input-${index}`;
+                    input.id = id;
+                    label.setAttribute('for', id);
+                }
+            });
+        }
+
+            // Initialize accessibility improvements
+            improveAccessibility();
+            
+            // Debug: Check if page loaded properly
+            console.log('Page loaded, checking for animated info box...');
+            setTimeout(() => {
+                const infoBox = document.querySelector('.animated-info-box');
+                console.log('Info box found after timeout:', infoBox);
+                if (infoBox) {
+                    console.log('Info box styles:', window.getComputedStyle(infoBox));
+                }
+            }, 1000);
+
+            // Animated Info Box Interactions
+            const animatedInfoBox = document.querySelector('.animated-info-box');
+            console.log('Looking for animated-info-box:', animatedInfoBox);
+            
+            if (animatedInfoBox) {
+                console.log('Found animated-info-box, adding interactions');
+                // Force visibility
+                animatedInfoBox.style.display = 'block';
+                animatedInfoBox.style.visibility = 'visible';
+                animatedInfoBox.style.opacity = '1';
+                
+                // Add floating animation on scroll
+                window.addEventListener('scroll', function() {
+                    const rect = animatedInfoBox.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    
+                    if (isVisible) {
+                        animatedInfoBox.style.transform = `translateY(${Math.sin(Date.now() * 0.001) * 3}px)`;
+                    }
+                });
+
+                // Add click effect
+                animatedInfoBox.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+
+                // Add keyboard navigation
+                animatedInfoBox.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            } else {
+                console.error('animated-info-box not found!');
+                // Try to create it if not found
+                const aboutText = document.querySelector('.about-text');
+                if (aboutText) {
+                    console.log('Creating animated-info-box manually');
+                    const newInfoBox = document.createElement('div');
+                    newInfoBox.className = 'animated-info-box';
+                    newInfoBox.innerHTML = `
+                        <div class="info-box-header">
+                            <i class="fas fa-rocket"></i>
+                            <h4>Điểm nổi bật</h4>
+                        </div>
+                        <div class="info-box-content">
+                            <div class="info-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Chuyên ngành: Công nghệ thông tin</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Địa điểm: TP. Hồ Chí Minh</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Kinh nghiệm: 8+ năm</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-code"></i>
+                                <span>Ngôn ngữ: JavaScript, React, Node.js</span>
+                            </div>
+                        </div>
+                        <div class="info-box-footer">
+                            <div class="status-indicator">
+                                <span class="status-dot"></span>
+                                <span>Sẵn sàng cho dự án mới</span>
+                            </div>
+                        </div>
+                    `;
+                    aboutText.appendChild(newInfoBox);
+                }
+            }
+
+            // Theme switching capability (for future enhancement)
+            function toggleTheme() {
+                const body = document.body;
+                const isDark = body.classList.toggle('dark-theme');
+                localStorage.setItem('dark-theme', isDark);
+            }
+
+            // Load saved theme preference
+            if (localStorage.getItem('dark-theme') === 'true') {
+                document.body.classList.add('dark-theme');
+            }
+    </script>
+</body>
+</html>
